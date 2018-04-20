@@ -8,11 +8,18 @@
 
 import UIKit
 
-class AddGameViewController: UIViewController {
-
+class AddGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+   
+    let genre = ["RPG", "Shooter", "Platformer", "Battle Royale", "MMORPG", "Sandbox", "Fighting Game", "Survival"]
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    @IBOutlet weak var gameTitleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        pickerView.delegate = self
+        pickerView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +27,15 @@ class AddGameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return genre.count
     }
-    */
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return genre[row]
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
 
 }

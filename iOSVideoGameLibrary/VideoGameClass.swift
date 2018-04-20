@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
+
+
+class VideoGame: Object {
+    @objc dynamic var title: String = ""
+    @objc dynamic var genre: String = ""
+    @objc dynamic var dueDate: Date = Date()
+    @objc dynamic var availability = true
+    
+}

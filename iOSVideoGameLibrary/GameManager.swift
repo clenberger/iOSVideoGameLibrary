@@ -7,3 +7,18 @@
 //
 
 import Foundation
+import RealmSwift
+
+final class GameManager {
+    
+    static let sharedInstance = GameManager()
+    
+    private init () {
+        
+    }
+}
+    let realm = try! Realm()
+
+    let calendar = Calendar.current
+
+    var games
